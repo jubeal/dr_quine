@@ -45,10 +45,15 @@ RESULTS_FILES = Grace_kid.s\
 								Sully_1\
 								Sully_0
 
+#Compilers
+
+N = nasm
+CC = gcc
+
 #Flags
 
-N = nasm -f macho64
-CC = gcc
+LINUX = -f elf64
+NOPIE = -no-pie
 
 #Rules
 
@@ -56,20 +61,20 @@ all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN): $(SRC_COLLEEN)
 	@echo "\033[34mCreation of $(COLLEEN) ...\033[0m"
-	@$(N) $<
-	@$(CC) $(OBJ_COLLEEN) -o $@
+	@$(N) $(LINUX) $<
+	@$(CC) $(NOPIE) $(OBJ_COLLEEN) -o $@
 	@echo "\033[34m$(COLLEEN) created ...\033[0m"
 
 $(GRACE): $(SRC_GRACE)
 	@echo "\033[34mCreation of $(GRACE) ...\033[0m"
-	@$(N) $<
-	@$(CC) -o $@ $(OBJ_GRACE)
+	@$(N) $(LINUX) $<
+	@$(CC) $(NOPIE) -o $@ $(OBJ_GRACE)
 	@echo "\033[34m$(GRACE) created ...\033[0m"
 
 $(SULLY): $(SRC_SULLY)
 	@echo "\033[34mCreation of $(SULLY) ...\033[0m"
-	@$(N) $<
-	@$(CC) -o $@ $(OBJ_SULLY)
+	@$(N) $(LINUX) $<
+	@$(CC) $(NOPIE) -o $@ $(OBJ_SULLY)
 	@echo "\033[34m$(SULLY) created ...\033[0m"
 
 clean:
