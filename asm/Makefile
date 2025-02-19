@@ -32,18 +32,24 @@ OBJ_SULLY = $(SRC_SULLY:.s=.o)
 #Execution fog
 
 RESULTS_FILES = Grace_kid.s\
-								Sully_5.s\
-								Sully_4.s\
-								Sully_3.s\
-								Sully_2.s\
-								Sully_1.s\
-								Sully_0.s\
-								Sully_5\
-								Sully_4\
-								Sully_3\
-								Sully_2\
-								Sully_1\
-								Sully_0
+	Sully_5.s\
+	Sully_4.s\
+	Sully_3.s\
+	Sully_2.s\
+	Sully_1.s\
+	Sully_0.s\
+	Sully_5.o\
+	Sully_4.o\
+	Sully_3.o\
+	Sully_2.o\
+	Sully_1.o\
+	Sully_0.o\
+	Sully_5\
+	Sully_4\
+	Sully_3\
+	Sully_2\
+	Sully_1\
+	Sully_0
 
 #Compilers
 
@@ -52,7 +58,7 @@ CC = gcc
 
 #Flags
 
-LINUX = -f elf64
+LINUX = -f elf64 -F dwarf
 CCFLAGS = -no-pie -z noexecstack -e main
 
 #Rules
