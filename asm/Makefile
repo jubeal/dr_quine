@@ -6,7 +6,7 @@
 #    By: jubeal <jubeal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 16:31:09 by jubeal            #+#    #+#              #
-#    Updated: 2025/02/17 22:16:44 by jubeal           ###   ########.fr        #
+#    Updated: 2025/02/19 02:58:56 by jubeal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ CC = gcc
 #Flags
 
 LINUX = -f elf64
-NOPIE = -no-pie
+CCFLAGS = -no-pie -e main
 
 #Rules
 
@@ -62,19 +62,19 @@ all: $(COLLEEN) $(GRACE) $(SULLY)
 $(COLLEEN): $(SRC_COLLEEN)
 	@echo "\033[34mCreation of $(COLLEEN) ...\033[0m"
 	@$(N) $(LINUX) $<
-	@$(CC) $(NOPIE) $(OBJ_COLLEEN) -o $@
+	@$(CC) $(CCFLAGS) $(OBJ_COLLEEN) -o $@
 	@echo "\033[34m$(COLLEEN) created ...\033[0m"
 
 $(GRACE): $(SRC_GRACE)
 	@echo "\033[34mCreation of $(GRACE) ...\033[0m"
-	@$(N) $(LINUX) $<
-	@$(CC) $(NOPIE) -o $@ $(OBJ_GRACE)
+	@$(N) $(LINUX) -w-label-orphan $<
+	@$(CC) $(CCFLAGS) -o $@ $(OBJ_GRACE)
 	@echo "\033[34m$(GRACE) created ...\033[0m"
 
 $(SULLY): $(SRC_SULLY)
 	@echo "\033[34mCreation of $(SULLY) ...\033[0m"
 	@$(N) $(LINUX) $<
-	@$(CC) $(NOPIE) -o $@ $(OBJ_SULLY)
+	@$(CC) $(CCFLAGS) -o $@ $(OBJ_SULLY)
 	@echo "\033[34m$(SULLY) created ...\033[0m"
 
 clean:
