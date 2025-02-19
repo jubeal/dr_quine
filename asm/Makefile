@@ -6,7 +6,7 @@
 #    By: jubeal <jubeal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 16:31:09 by jubeal            #+#    #+#              #
-#    Updated: 2025/02/19 02:58:56 by jubeal           ###   ########.fr        #
+#    Updated: 2025/02/19 08:19:17 by jubeal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ CC = gcc
 #Flags
 
 LINUX = -f elf64
-CCFLAGS = -no-pie -e main
+CCFLAGS = -no-pie -z noexecstack -e main
 
 #Rules
 
