@@ -32,15 +32,15 @@ all: $(COLLEEN) $(GRACE) $(SULLY)
 
 Colleen:
 	@echo "\033[34mColleen execution\033[0m"
-	node $(SRC_COLLEEN)
+	@node $(SRC_COLLEEN)
 
 Grace:
 	@echo "\033[34mGrace execution\033[0m"
-	node $(SRC_GRACE)
+	@node $(SRC_GRACE)
 
 Sully:
 	@echo "\033[34mSully execution\033[0m"
-	node $(SRC_SULLY)
+	@node $(SRC_SULLY)
 
 $(SULLY)%.c:
 	@echo $@
